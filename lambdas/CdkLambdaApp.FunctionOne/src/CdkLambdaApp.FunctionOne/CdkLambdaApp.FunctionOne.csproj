@@ -11,4 +11,8 @@
     <PackageReference Include="Amazon.Lambda.Core" Version="1.2.0" />
     <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.1.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\domain\CdkLambdaApp.Domain.Orders\CdkLambdaApp.Domain.Orders.csproj">
+    </ProjectReference>
+  </ItemGroup>
 </Project>

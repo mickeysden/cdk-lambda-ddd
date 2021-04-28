@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 using Amazon.Lambda.Core;
@@ -12,7 +14,7 @@ namespace CdkLambdaApp.FunctionOne
 {
     public class Function
     {
-        
+
         /// <summary>
         /// A simple function that takes a string and does a ToUpper
         /// </summary>
@@ -21,7 +23,8 @@ namespace CdkLambdaApp.FunctionOne
         /// <returns></returns>
         public string FunctionHandler(string input, ILambdaContext context)
         {
-            return input?.ToUpper();
+            var order = new CdkLamdaApp.Domain.Orders.OrderAggregate("12345", new List<CdkLamdaApp.Domain.Orders.OrderLineItem>());
+            return input?.ToUpper() + " " + order.ToString();
         }
     }
 }
